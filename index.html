@@ -4,28 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcus Rallis - Personal Website</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Your+Selected+Font&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
 
     <style>
         body {
-            font-family: "Rammetto One", sans-serif;
+            font-family: "VT323", sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 120vh;
+            align-items: flex-end; /* Align to the bottom */
+            justify-content: flex-end; /* Align to the right */
+            height: 100vh;  
             background-color: #000;
         }
+      /* Typing animation */
+        .title-container {
+            display: flex;
+            align-items: baseline;
+            margin: 60px;
+          flex-grow: 1; /* Allows the container to grow and push the nav to the top */
+        }
 
-        h1 {
-            font-size: 7em;
+        .typing {
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 4em;
+            color: #44FF66;
+        }
+       /* Style for the navigation bar */
+        nav {
+            width: 100%;
+            background-color:#000 ; /* Dark background for the nav bar */
+            overflow: hidden;
+            position: fixed; /* Fix at the top */
+            top: 0;
+        }
+
+        nav a {
+            float: right;
+            display: block;
+            color: #66FF66; /* Light color for text */
             text-align: center;
-            color: #fff; /*Heading White*/
+            padding: 22px 54px; /* Padding for the links */
+            text-decoration: none;
+            font-size: 24px; /* Bigger font size for links */
+        }
+
+        nav a:hover {
+            background-color: #ddd; /* Change color on hover */
+            color: black;
         }
     </style>
 </head>
 <body>
-    <h1>Marcus Rallis</h1>
+  <!-- Navigation bar -->
+    <nav>
+        <a href="#digital">Digital</a>
+        <a href="#visual">Visual</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="title-container">
+        <h1 id="firstName" class="typing"></h1>
+        <h1 id="lastName" class="typing" style="display: none;"></h1>
+    </div>
+
+    <div class="title-container">
+        <h1 id="firstName" class="typing"></h1>
+        <h1 id="lastName" class="typing" style="display: none;"></h1>
+    </div>
+
+    <script>
+        const firstName = "Marcus ";
+        const lastName = " Rallis..  ";
+        const firstNameElement = document.getElementById('firstName');
+        const lastNameElement = document.getElementById('lastName');
+        let i = 0, j = 0;
+        let pauseDuration = 1000; // Duration of pause in milliseconds
+
+        function typeWriterFirstName() {
+            if (i < firstName.length) {
+                firstNameElement.innerHTML += firstName.charAt(i);
+                i++;
+                setTimeout(typeWriterFirstName, 150); // Typing speed in milliseconds
+            } else {
+                setTimeout(typeWriterLastName, pauseDuration); // Start last name after a pause
+            }
+        }
+
+        function typeWriterLastName() {
+            lastNameElement.style.display = "inline"; // Make the last name visible
+            if (j < lastName.length) {
+                lastNameElement.innerHTML += lastName.charAt(j);
+                j++;
+                setTimeout(typeWriterLastName, 150); // Typing speed in milliseconds
+            }
+        }
+
+        // Start the typing effect on window load
+        window.onload = typeWriterFirstName;
+    </script>
 </body>
 </html>
