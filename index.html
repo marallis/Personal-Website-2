@@ -12,97 +12,205 @@
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: flex-end; /* Align to the bottom */
-            justify-content: flex-end; /* Align to the right */
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the left */
+            justify-content: flex-end; /* Align items to the bottom */
             height: 100vh;  
             background-color: #000;
-        }
-      /* Typing animation */
-        .title-container {
-            display: flex;
-            align-items: baseline;
-            margin: 60px;
-          flex-grow: 1; /* Allows the container to grow and push the nav to the top */
-        }
-
-        .typing {
-            white-space: nowrap;
-            overflow: hidden;
-            font-size: 4em;
             color: #44FF66;
         }
-       /* Style for the navigation bar */
+
         nav {
             width: 100%;
-            background-color:#000 ; /* Dark background for the nav bar */
+            background-color:#000;
             overflow: hidden;
-            position: fixed; /* Fix at the top */
+            position: fixed;
             top: 0;
         }
 
         nav a {
             float: right;
             display: block;
-            color: #66FF66; /* Light color for text */
+            color: #66FF66;
             text-align: center;
-            padding: 22px 54px; /* Padding for the links */
+            padding: 22px 54px;
             text-decoration: none;
-            font-size: 24px; /* Bigger font size for links */
+            font-size: 24px;
         }
 
         nav a:hover {
-            background-color: #ddd; /* Change color on hover */
+            background-color: #ddd;
             color: black;
+        }
+
+        .content-section {
+            display: none;
+            padding: 20px;
+            margin-top: 100px; /* Adjust as needed */
+        }
+
+       .artist-section {
+            text-align: center; /* Center-align text */
+            color: white; /* Text color */
+        }
+
+        .artist-section h2 {
+            font-size: 2em; /* Larger font size for heading */
+        }
+        
+        .visual-section {
+            text-align: center; /* Center-align text */
+            color: white; /* Text color */
+        }
+
+        .visual-section h2 {
+            font-size: 2em; /* Larger font size for heading */
+        }
+        
+         .digital-section {
+            text-align: center; /* Center-align text */
+            color: white; /* Text color */
+        }
+
+        .digital-section h2 {
+            font-size: 2em; /* Larger font size for heading */
+        }
+        
+        .collage-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .collage-container img {
+            max-width: 200px;
+            height: auto;
+            border: 3px solid white;
+            }
+            
+       .title-container {
+            margin: 20px;
+            display: flex;
+            flex-direction: row; 
+            justify-content: flex-start;
+            align-items: flex-end; 
+            width: 100%;
+        }
+
+        .typing {
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 4em;
         }
     </style>
 </head>
 <body>
-  <!-- Navigation bar -->
+    <!-- Navigation bar -->
     <nav>
-        <a href="#visual">Visual</a>
-        <a href="#digital">Digital</a>
-        <a href="#film">Film</a>
-      	<a href="#about">About</a>
+    <a href="javascript:void(0);" onclick="showSection('film')">Film</a>
+        <a href="javascript:void(0);" onclick="showSection('digital')">Digital</a>
+        <a href="javascript:void(0);" onclick="showSection('visual')">Visual</a>
+        <a href="javascript:void(0);" onclick="showSection('artist')">Artist</a>
+        <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
     </nav>
 
-    <div class="title-container">
-        <h1 id="firstName" class="typing"></h1>
-        <h1 id="lastName" class="typing" style="display: none;"></h1>
+    <!-- Home section -->
+    <div id="home" class="content-section" style="display: block;">
+        <div class="title-container">
+            <h1 id="firstName" class="typing"></h1>
+            <h1 id="lastName" class="typing" style="display: none;"></h1>
+        </div>
     </div>
 
-    <div class="title-container">
-        <h1 id="firstName" class="typing"></h1>
-        <h1 id="lastName" class="typing" style="display: none;"></h1>
+    <!-- Artist section -->
+    <div id="artist" class="content-section artist-section">
+        <h2>Artist's Statement</h2>
+       <p>My name is Marcus Rallis. I am currently pursuing my undergraduate degree of Global Business and Digital Arts at the University of Waterloo. I immerse myself in all things creative. I enjoy the feeling I get when creative energy flows through my body. I feel as though creative energy is like water. Everyone has it, yet some may have to dig deeper than others. For me, I have always remembered having a small puddle, and when I do something creative like take a visual arts course in highschool, my creative energy turns into a small stream. When I don't exercise these skills however, that energy begins to dry up. As I was introduced to film this year in my Digital Projects class, I found a medium that really hooked me. Film truly inspired me. I can connect with my viewers emotions and give them a particular feeling. Film is real life but better.</p>
+        
+       <p>As I slowly fall deeper into this consciousness, I desire more creative energy. I feel a longing to explore more mediums and expand my stream into a river, then lake, than ocean. Like the ocean, eventually I will have an unnoticed influence on the world.</p>
+
+       <p>I am begining to realize that the only person to ever read this will probably be my TA, so that might have got too deep.</p> 
+        <div class="collage-container">
+            <!-- Images go here -->
+        </div>
     </div>
+
+<!-- Visual section -->
+    <div id="visual" class="content-section visual-section">
+        <h2>Visual Arts</h2>
+        <p>Visual arts holds a special place in my heart. It's where my identity as an artist was born. Growing up, my mom would often suggest arts and crafts as an activity when I wasn't playing sports. She is a talented visual artist and nurtured my creative side. I wasn't very confident in my ability with a pencil or paintbrush, maybe because I was constantly comparing myself to her or other kids in my class, but she persistently told me how good I was. In the summer of 2017 it was time to select my electives for grade 9. This was a pivotal educational decision, as I had the freedom to choose electives. All of my friends chose drama because it was the bird course. My parents reminded me that the decisions I made in highschool were important because university was right around the corner. I ultimately chose visual arts. Luckly, with a great teacher and beautiful studio, it has been one of the best classes I've taken to this day. </p>
+       
+       <p>Here is some of the work I produced in my visual arts classes in high school.</p>
+        
+         <!-- Collage of photos -->
+    <div class="collage-container">
+        <img src="path/to/hands.heic" alt="Hands">
+        <img src="path/to/walter.jpg" alt="Walter">
+        <img src="path/to/mummy.jpg" alt="Mummy">
+        <img src="path/to/flowermixedmedia.jpg" alt="Flower Mixed Media">
+        <img src="path/to/contradiction.jpg" alt="Contradiction">
+        <img src="path/to/papou.jpg" alt="Papou">
+        <img src="path/to/stepbrothers.heic" alt="Step Brothers">
+        <img src="path/to/artshoes.jpg" alt="Art Shoes">
+    </div>
+        </div>
+        
+        <!-- Digital section -->
+    <div id="digital" class="content-section digital-section">
+        <h2>Digital Arts</h2>
+        <p>As I sat in Ms. Aylesworth's visual arts class, I noticed another teacher bringing groups of kids into a room at the front of the class. I asked Ms. Aylesworth and she informed me it was Mr. Krawczyk's digital art's class using the dark room. I knew I had to try it. I always had an aptitude with tech so I imagined this could be my thing. The problem was, my schedule was tight and I couldn't fit all of my academics with visual and digital arts. I ultimately decided to switch back and forth. Grade 9 I would take visual, grade 10 I would take digital etc.  </p>
+        
+        <p>Here is some of the work I produced in my digital arts classes in high scool.</p>
+        
+         <div class="collage-container">
+            <!-- Images go here -->
+        </div>
+        </div>
+        
+        
+    <!-- Other sections (Placeholder) -->
+    <!-- Add similar divs with respective IDs and class 'content-section' for these sections -->
 
     <script>
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+
         const firstName = "Marcus ";
         const lastName = " Rallis..  ";
         const firstNameElement = document.getElementById('firstName');
         const lastNameElement = document.getElementById('lastName');
         let i = 0, j = 0;
-        let pauseDuration = 1000; // Duration of pause in milliseconds
+        let pauseDuration = 1000;
 
         function typeWriterFirstName() {
             if (i < firstName.length) {
                 firstNameElement.innerHTML += firstName.charAt(i);
                 i++;
-                setTimeout(typeWriterFirstName, 150); // Typing speed in milliseconds
+                setTimeout(typeWriterFirstName, 150);
             } else {
-                setTimeout(typeWriterLastName, pauseDuration); // Start last name after a pause
+                setTimeout(typeWriterLastName, pauseDuration);
             }
         }
 
         function typeWriterLastName() {
-            lastNameElement.style.display = "inline"; // Make the last name visible
+            lastNameElement.style.display = "inline";
             if (j < lastName.length) {
                 lastNameElement.innerHTML += lastName.charAt(j);
                 j++;
-                setTimeout(typeWriterLastName, 150); // Typing speed in milliseconds
+                setTimeout(typeWriterLastName, 150);
             }
         }
 
-        // Start the typing effect on window load
         window.onload = typeWriterFirstName;
     </script>
 </body>
