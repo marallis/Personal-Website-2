@@ -61,6 +61,18 @@
         font-size: 20px;
 
       }
+      .contact-section {
+        font-family: "lores-12", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        text-align: center;
+        color: white;
+
+      }
+
+      .contact-section h2 {
+        font-size: 2em;
+      }
 
       .artist-section {
         font-family: "lores-12", sans-serif;
@@ -118,6 +130,7 @@
         font-size: 3em;
 
       }
+      
 
       .collage-container {
         width: 100vw;
@@ -159,6 +172,7 @@
       <a href="javascript:void(0);" onclick="showSection('chapter 2')">Chapter 2</a>
       <a href="javascript:void(0);" onclick="showSection('chapter 1')">Chapter 1</a>
       <a href="javascript:void(0);" onclick="showSection('artist')">Artist</a>
+      <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
       <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
     </nav>
 
@@ -227,12 +241,22 @@
       <br>
       <p>The curriculum is well-crafted and the quality of teaching is simply outstanding. For once, I am able to get lost in each and every project. Our digital projects class introduced us to the captivating world of filmmaking. The way we've dissected the audio and visual elements of filmmaking has given me a newfound appreciation for this art form. This semester isn't just another academic term; it's a pivotal moment in my career.</p>
       <div style="display: flex; align-items: center;">
-        <p style="margin: 110; margin-right: 50px;">Projects I've done this semester>>> </p>
+      <p style="margin: 110; margin-right: 50px;">Projects I've done this semester>>> </p>
         <a href="https://www.youtube.com/channel/UCTuA3GdrfLyg4dqDjNnmG1g" target="_blank" title="Visit my YouTube channel">
           <img src="Black Youtube.jpg" alt="YouTube logo" style="width: 150px; height: auto;">
         </a>
       </div>
     </div>
+    
+   <!-- Contact section -->
+<div id="contact" class="content-section" style="display: none;">
+  <h2>Contact Information</h2>
+  <p>Name: Marcus Rallis</p>
+  <p>Email: <a href="m.rallis13@gmail.com">m.rallis13@gmail.com</a></p>
+  <p>Phone: (705)-985-1911</p>
+  <h2>Resume</h2>
+  <p>You can download my resume in PDF format: <a href="link_to_your_resume.pdf" target="_blank">Download Resume</a></p>
+</div>
 
     <script>
       function showSection(sectionId) {
