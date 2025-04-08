@@ -1,316 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcus Rallis - Personal Website</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
-    <link rel="stylesheet" href="https://use.typekit.net/tpa1tjm.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcus Rallis | Designer & Digital Artist</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap" />
+    <link rel="stylesheet" href="https://use.typekit.net/tpa1tjm.css" />
     <style>
-      body {
-        font-family: "VT323", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        color: #D3D3D3;
+      :root {
+        --primary-color: #000;
+        --text-color: #d3d3d3;
+        --accent-color: #ffffff;
+        --highlight-color: #ddd;
+        --font-header: "lores-12", sans-serif;
+        --font-body: "VT323", monospace;
       }
 
-      p {
-        font-family: "VT323", sans-serif;
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
         margin: 0;
         padding: 0;
-        background-color: #000;
-        color: #D3D3D3;
-        text-align: justify;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        font-family: var(--font-body);
+      }
+
+      .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+        background-color: var(--primary-color);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 6px;
+        z-index: 100;
+      }
+
+      .timeline-step {
+        width: 20%;
+        height: 6px;
+        background-color: #444;
+        transition: background-color 0.3s;
+      }
+
+      .timeline-step.active {
+        background-color: var(--highlight-color);
       }
 
       nav {
-        width: 100%;
-        background-color: #000;
-        overflow: hidden;
+        margin-top: 10px;
         position: fixed;
-        top: 0;
+        top: 6px;
+        width: 100%;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: center;
+        z-index: 10;
       }
 
       nav a {
-        float: right;
-        display: block;
-        color: #D3D3D3;
-        text-align: center;
-        padding: 22px 54px;
+        padding: 20px 30px;
+        color: var(--text-color);
         text-decoration: none;
-        font-size: 24px;
-        
+        font-size: 1.2rem;
       }
 
       nav a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: var(--highlight-color);
+        color: var(--primary-color);
       }
 
       .content-section {
-
+        padding: 120px 20px 40px;
+        max-width: 1000px;
+        margin: auto;
         display: none;
-        padding: 20px;
-        margin-top: 60px;
-        justify-content: flex-start;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
         font-size: 20px;
-
       }
-      .contact-section {
-        font-family: "lores-12", sans-serif;
-        font-weight: 700;
-        font-style: normal;
+
+      .content-section h2 {
+        font-family: var(--font-header);
+        font-size: 2.5rem;
         text-align: center;
-        color: white;
-
+        color: var(--accent-color);
+        margin-bottom: 20px;
       }
 
-      .contact-section h2 {
-        font-size: 2em;
+      .active {
+        display: block !important;
+        animation: fadeIn 0.5s ease-in;
       }
 
-      .artist-section {
-        font-family: "lores-12", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        text-align: center;
-        color: white;
-
-      }
-
-      .artist-section h2 {
-        font-size: 2em;
-
-      }
-
-      .visual-section {
-        font-family: "lores-12", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        text-align: center;
-        color: white;
-
-      }
-
-      .visual-section h2 {
-        font-size: 3em;
-        margin: 50;
-
-      }
-
-      .digital-section {
-        font-family: "lores-12", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        text-align: center;
-        color: white;
-
-      }
-
-      .digital-section h2 {
-        font-size: 3em;
-
-      }
-
-      .film-section {
-        font-family: "lores-12", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        text-align: center;
-        color: white;
-
-      }
-
-      .film-section h2 {
-        font-size: 3em;
-
-      }
-      
-
-      .collage-container {
-        width: 100vw;
-        margin-top: 60px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 50px;
-        margin-left: calc(-50vw + 50%);
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       .title-container {
-        position: absolute;
-        bottom: 0;
-        left: 50;
-        margin: 20px;
-        white-space: nowrap;
-        color: white;
+        text-align: center;
+        margin-top: 150px;
       }
 
       .title-container h1 {
-        display: inline;
-        font-size: 4em;
-        
+        font-size: 4rem;
+        font-family: var(--font-header);
+        color: var(--accent-color);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: .1em;
+        border-right: 0.15em solid var(--accent-color);
+        overflow: hidden;
+        animation: typing 2.5s steps(20, end), blink-caret 0.75s step-end infinite;
       }
 
-      .typing {
-        white-space: nowrap;
-        overflow: hidden;
-        font-size: 4em;
-        
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: var(--accent-color); }
+      }
+
+      .collage-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .collage-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .chapter-nav {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .chapter-nav button {
+        background-color: transparent;
+        border: 2px solid var(--highlight-color);
+        color: var(--highlight-color);
+        padding: 10px 25px;
+        margin: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-family: var(--font-body);
+        transition: all 0.3s ease;
+      }
+
+      .chapter-nav button:hover {
+        background-color: var(--highlight-color);
+        color: var(--primary-color);
+      }
+
+      .social-links {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+     .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        padding: 10px 24px;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        min-width: 120px;
+      }
+      .social-links a[href*="youtube"] {
+        border: 2px solid #ff0000;
+        color: #ff0000;
+      }
+
+      .social-links a[href*="youtube"]:hover {
+        background-color: #ff0000;
+        color: var(--primary-color);
+      }
+
+      .social-links a[href*="linkedin"] {
+        border: 2px solid #0077b5;
+        color: #0077b5;
+      }
+
+      .social-links a[href*="linkedin"]:hover {
+        background-color: #0077b5;
+        color: var(--primary-color);
+      }
+
+      .social-links a[href*="portfolio"] {
+  border: 2px solid #ffffff;
+  color: #ffffff !important;
+  background-color: transparent;
+         box-sizing: border-box;
+        display: inline-block;
+}
+
+      .social-links a[href*="portfolio"]:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+      .content-section a {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+
+      .content-section a:hover {
+        color: var(--highlight-color);
+      }
+
+      @media (max-width: 768px) {
+        nav a {
+          padding: 15px;
+          font-size: 1rem;
+        }
+
+        .title-container h1 {
+          font-size: 2.5rem;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- Toolbar -->
+    <div class="timeline">
+      <div class="timeline-step" id="step-home"></div>
+      <div class="timeline-step" id="step-chapter1"></div>
+      <div class="timeline-step" id="step-chapter2"></div>
+      <div class="timeline-step" id="step-chapter3"></div>
+      <div class="timeline-step" id="step-contact"></div>
+    </div>
+
     <nav>
-      <a href="javascript:void(0);" onclick="showSection('chapter 3')">Chapter 3</a>
-      <a href="javascript:void(0);" onclick="showSection('chapter 2')">Chapter 2</a>
-      <a href="javascript:void(0);" onclick="showSection('chapter 1')">Chapter 1</a>
-      <a href="javascript:void(0);" onclick="showSection('artist')">Artist</a>
-      <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
-      <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
+      <a href="#home">Home</a>
+      <a href="#chapter1">Chapter 1</a>
+      <a href="#chapter2">Chapter 2</a>
+      <a href="#chapter3">Chapter 3</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Home section -->
-    <div id="home" class="content-section" style="display: block;">
+    <div id="home" class="content-section active">
       <div class="title-container">
-        <h1 id="firstName" class="typing"></h1>
-        <h1 id="lastName" class="typing" style="display: none;"></h1>
+        <h1>Marcus Rallis</h1>
+        <p>Designer</p>
       </div>
     </div>
 
-    <!-- Artist section -->
-    <div id="artist" class="content-section artist-section">
-      <h2>Artist's Statement</h2>
-      <p class="rectangle">My name is Marcus Rallis. I am currently pursuing my undergraduate degree of Global Business and Digital Arts at the University of Waterloo. I consider myself an artist, a creative, and designer. I have a way of seeing the world that is unique to anyone else. But I haven't always seen myself this way.</p>
-      <br>
-      <p class="rectangle">Like every other kid, I faced the daunting task of choosing a lifelong career path. The conventional options were always there: doctor, financier, architect. However, when asked the question "what do you see yourself doing all day?" the answer was always projects. I have truly fallen in love with the feeling of being consumed by a project and all the emotions that comes with it. I enjoy the feeling I get when creative energy flows through my body. To me, creativity is like water. Everyone has it, though for some, it may lie deeper beneath the surface. In my case, this energy has always been a constant presence, like a small, persistent puddle. It blossomed into a flowing stream each time I engaged in artistic activities. When I don't exercise these skills however, that energy begins to dry up. </p>
-      <br>
-      <p class="rectangle">I have built this site based on my creative chapters to date. It is just a small glimpse into my ongoing journey as an artist. I am driven by an insatiable desire to delve deeper into this artistic consciousness, to explore new mediums, and to transform my stream of creativity into a constant presence. Like the vast, often understated influence of the ocean, I aspire to leave a subtle yet profound impact on the world through my creative endeavors.</p>
-    </div>
-
-    <!-- Visual section -->
-    <div id="chapter 1" class="content-section visual-section">
-      <h2>Visual Arts</h2>
-      <p>Visual arts holds a special place in my heart. It's where my identity as an artist was born. Growing up, my mom would often suggest arts and crafts as an activity when I wasn't playing sports. She is a talented visual artist and nurtured my creative side. I wasn't very confident in my ability with a pencil or paintbrush, maybe because I was constantly comparing myself to her or other kids in my class, but she persistently told me how good I was.</p>
-      <br>
-      <p>In the summer of 2017 it was time to select my electives for grade 9. This was a pivotal educational decision, as I had the freedom to choose electives. All of my friends chose drama because it was the bird course. My parents reminded me that the decisions I made in highschool were important because university was right around the corner. I ultimately chose visual arts. Luckly, with a great teacher and beautiful studio, it has been one of the best classes I've taken to this day. </p>
-      <br>
-      <p>Here is some of the work I produced in my visual arts classes in high school.</p>
-
-      <!-- Visual photos -->
-      <div class="collage-container">
-        <img src="Papou.jpg" alt="Papou" width="420" height="476">
-        <img src="Mummy.jpeg" alt="Mummy" width="360" height="426">
-        <img src="Step brothers.JPG" alt="Step Brothers" width="360" height="446">
-        <img src="artshoes.JPG" alt="Art Shoes" width="350" height="350">
-        <img src="Walter.jpg" alt="Walter" width="430" height="556">
-        <img src="Hands.jpeg" alt="Hands" width="350" height="360">
-        <img src="Chinese food.jpeg" alt="Chinese Food" width="402" height="503">
-        <img src="Contradiction painting.jpg" alt="Contradiction" width="532" height="462">
+    <div id="chapter1" class="content-section">
+      <h2>Chapter 1: Visual Arts</h2>
+      <p>Visual arts holds a special place in my heart. It's where my identity as an artist was born...</p>
+      <div class="collage-container"></div>
+      <div class="chapter-nav">
+        <button onclick="navigateTo('chapter2')">Next Chapter →</button>
       </div>
     </div>
 
-    <!-- Digital section -->
-    <div id="chapter 2" class="content-section digital-section">
-      <h2>Digital Arts</h2>
-      <p class="typewriter">As I sat in Ms. Aylesworth's visual arts class, I noticed another teacher bringing groups of kids into a room at the front of the class. I asked Ms. Aylesworth and she informed me it was Mr. Krawczyk's digital art's class using the dark room. I knew I had to try it. I always had an aptitude with tech so I imagined this could be my thing. The problem was, my schedule was tight and I couldn't fit all of my academics with visual and digital arts. I ultimately decided to switch back and forth. Grade 9 I would take visual, grade 10 I would take digital etc. </p>
-      <br>
-      <p class="typewriter">Here are some digital art peices I have created thus far.</p>
-
-      <!-- Photos -->
-      <div class="collage-container">
-        <img src="Yoda.jpeg" alt="Yoda" width="548" height="465">
-        <img src="Fine150 Multiplicity.jpeg" alt="Multiplicity" width="500" height="385">
-        <img src="A2_marcus_rallis_space1.jpg" at="A2_marcus_rallis_space1" width="563" height="696">
-        <img src="A2_marcus_rallis_space2.jpg" alt="A2_marcus_rallis_space2" width="430" height="530">
-        <img src="Ps landscape.jpeg" alt="Ps landscape" width="380" height="460">
-        <img src="Distorted Disney.jpg" alt="Distorted Disney" width="555" height="626">
+    <div id="chapter2" class="content-section">
+      <h2>Chapter 2: Digital Arts</h2>
+      <p>As I sat in Ms. Aylesworth's visual arts class, I noticed another teacher bringing groups of kids into a room...</p>
+      <div class="collage-container"></div>
+      <div class="chapter-nav">
+        <button onclick="navigateTo('chapter1')">← Previous Chapter</button>
+        <button onclick="navigateTo('chapter3')">Next Chapter →</button>
       </div>
     </div>
 
-    <!-- Film section -->
-    <div id="chapter 3" class="content-section film-section">
-      <h2>Filmaking</h2>
-      <p>Semester 2A of my GBDA undergrad has been the best semester of my life. I know that may seem outragoues to say, but, I genuinely have never been so inspired.</p>
-      <br>
-      <p>The curriculum is well-crafted and the quality of teaching is simply outstanding. For once, I am able to get lost in each and every project. Our digital projects class introduced us to the captivating world of filmmaking. The way we've dissected the audio and visual elements of filmmaking has given me a newfound appreciation for this art form. This semester isn't just another academic term; it's a pivotal moment in my career.</p>
-      <div style="display: flex; align-items: center;">
-      <p style="margin: 110; margin-right: 50px;">Projects I've done this semester>>> </p>
-        <a href="https://www.youtube.com/channel/UCTuA3GdrfLyg4dqDjNnmG1g" target="_blank" title="Visit my YouTube channel">
-          <img src="Black Youtube.jpg" alt="YouTube logo" style="width: 150px; height: auto;">
-        </a>
+    <div id="chapter3" class="content-section">
+      <h2>Chapter 3: Filmmaking</h2>
+      <p>Semester 2A of my GBDA undergrad has been the best semester of my life...</p>
+      <div class="collage-container"></div>
+      <div class="chapter-nav">
+        <button onclick="navigateTo('chapter2')">← Previous Chapter</button>
       </div>
     </div>
-    
-   <!-- Contact section -->
-<div id="contact" class="content-section" style="display: none;">
-  <h1>Contact Information</h1>
-  <p>Name: Marcus Rallis</p>
-  <p>Email: <a href="m.rallis13@gmail.com">m.rallis13@gmail.com</a></p>
-  <p>Phone: (705)-985-1911</p>
-  <h2>Resume</h2>
-  <p>You can download my resume in PDF format: <a href="Design Resume.jpg" target="Professional Resume">Download Resume</a></p>
-   <img src="Design Resume.jpg" alt="Resume" style="max-width: 90%; height: auto;">
-</div>
-</div>
+
+    <div id="contact" class="content-section">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:m.rallis13@gmail.com">m.rallis13@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@marcusrallis9564" target="_blank">YouTube</a>
+        <a href="https://www.linkedin.com/in/marcus-rallis-96479124b" target="_blank">LinkedIn</a>
+        <a href="https://rallis2004.wixsite.com/marcus-rallis-design" target="_blank">Portfolio</a>
+      </div>
+    </div>
 
     <script>
-      function showSection(sectionId) {
-        var sections = document.getElementsByClassName('content-section');
-        for (var i = 0; i < sections.length; i++) {
-          sections[i].style.display = 'none';
-        }
-
-        var selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-          selectedSection.style.display = 'block';
+      function updateTimeline(sectionId) {
+        const steps = ['home', 'chapter1', 'chapter2', 'chapter3', 'contact'];
+        steps.forEach(id => {
+          document.getElementById(`step-${id}`).classList.remove('active');
+        });
+        if (steps.includes(sectionId)) {
+          document.getElementById(`step-${sectionId}`).classList.add('active');
         }
       }
 
-      const firstName = "Marcus ";
-      const lastName = " Rallis... ";
-      const firstNameElement = document.getElementById('firstName');
-      const lastNameElement = document.getElementById('lastName');
-      let i = 0,
-        j = 0;
-      let pauseDuration = 1000;
-
-      function typeWriterFirstName() {
-        if (i < firstName.length) {
-          firstNameElement.innerHTML += firstName.charAt(i);
-          i++;
-          setTimeout(typeWriterFirstName, 150);
-        } else {
-          setTimeout(typeWriterLastName, pauseDuration);
-        }
+      function navigateTo(sectionId) {
+        document.querySelectorAll(".content-section").forEach(section => {
+          section.classList.remove("active");
+        });
+        document.getElementById(sectionId).classList.add("active");
+        updateTimeline(sectionId);
+        window.scrollTo(0, 0);
       }
 
-      function typeWriterLastName() {
-        lastNameElement.style.display = "inline";
-        if (j < lastName.length) {
-          lastNameElement.innerHTML += lastName.charAt(j);
-          j++;
-          setTimeout(typeWriterLastName, 150);
-        }
-      }
+      document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          navigateTo(targetId);
+        });
+      });
 
-      window.onload = typeWriterFirstName;
-
-      function typeWriter(elementId, text, i, interval) {
-        if (i < text.length) {
-          document.getElementById(elementId).innerHTML += text.charAt(i);
-          i++;
-          setTimeout(function() {
-            typeWriter(elementId, text, i, interval);
-          }, interval);
-        }
-      }
+      window.onload = () => updateTimeline('home');
     </script>
   </body>
 </html>
